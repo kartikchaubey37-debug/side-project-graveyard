@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   :root {
     --bg: #0e0d0b;
     --bg2: #161410;
@@ -26,9 +26,9 @@
     --card-bg: #13110e;
     --tag-bg: rgba(255,255,255,0.06);
   }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -38,8 +38,7 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
-  /* Grain overlay */
+ 
   body::before {
     content: '';
     position: fixed;
@@ -49,8 +48,7 @@
     z-index: 1000;
     opacity: 0.4;
   }
-
-  /* NAV */
+ 
   nav {
     display: flex;
     justify-content: space-between;
@@ -63,7 +61,7 @@
     backdrop-filter: blur(12px);
     z-index: 100;
   }
-
+ 
   .logo {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
@@ -74,13 +72,9 @@
     color: var(--text);
     text-decoration: none;
   }
-
-  .logo-tomb {
-    font-size: 1.4rem;
-  }
-
+ 
   .nav-actions { display: flex; gap: 12px; align-items: center; }
-
+ 
   .btn {
     padding: 8px 18px;
     border-radius: 4px;
@@ -91,30 +85,19 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-
-  .btn-ghost {
-    background: transparent;
-    border: 1px solid var(--border2);
-    color: var(--muted);
-  }
+ 
+  .btn-ghost { background: transparent; border: 1px solid var(--border2); color: var(--muted); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-  .btn-primary {
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    color: #0e0d0b;
-    font-weight: 500;
-  }
+  .btn-primary { background: var(--accent); border: 1px solid var(--accent); color: #0e0d0b; font-weight: 500; }
   .btn-primary:hover { background: #e0bc6a; }
-
-  /* HERO */
+ 
   .hero {
     text-align: center;
     padding: 6rem 2rem 5rem;
     position: relative;
     border-bottom: 1px solid var(--border);
   }
-
+ 
   .hero-eyebrow {
     font-family: 'DM Mono', monospace;
     font-size: 0.75rem;
@@ -127,556 +110,105 @@
     justify-content: center;
     gap: 10px;
   }
-  .hero-eyebrow::before, .hero-eyebrow::after {
-    content: '';
-    width: 40px;
-    height: 1px;
-    background: var(--accent);
-    opacity: 0.4;
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 6vw, 5.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-  }
-
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--muted);
-    max-width: 540px;
-    margin: 0 auto 2.5rem;
-    font-weight: 300;
-  }
-
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 1px; background: var(--accent); opacity: 0.4; }
+ 
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text); }
+  h1 em { font-style: italic; color: var(--accent); }
+ 
+  .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin: 0 auto 2.5rem; font-weight: 300; }
+ 
+  .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
   .stat-item { text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: var(--text);
-    display: block;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-  }
-
-  /* FLOATING TOMBSTONES decoration */
-  .tombstones-bg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 8px;
-    pointer-events: none;
-    opacity: 0.07;
-  }
-
-  .mini-tomb {
-    width: 14px;
-    height: 20px;
-    background: var(--text);
-    border-radius: 8px 8px 0 0;
-  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text); display: block; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+ 
+  .tombstones-bg { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; pointer-events: none; opacity: 0.07; }
+  .mini-tomb { width: 14px; height: 20px; background: var(--text); border-radius: 8px 8px 0 0; }
   .mini-tomb:nth-child(odd) { height: 26px; }
   .mini-tomb:nth-child(3n) { height: 16px; }
-
-  /* FILTERS */
-  .filters-bar {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 1.25rem 2.5rem;
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-    flex-wrap: wrap;
-  }
-
-  .filter-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-right: 6px;
-    white-space: nowrap;
-  }
-
-  .chip {
-    padding: 5px 14px;
-    border-radius: 2px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-    text-transform: uppercase;
-  }
+ 
+  .filters-bar { display: flex; gap: 10px; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--border); overflow-x: auto; flex-wrap: wrap; }
+  .filter-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-right: 6px; white-space: nowrap; }
+  .chip { padding: 5px 14px; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; text-transform: uppercase; }
   .chip:hover, .chip.active { border-color: var(--accent); color: var(--accent); background: rgba(201,168,76,0.07); }
-
-  .search-wrap {
-    margin-left: auto;
-    position: relative;
-  }
-
-  .search-wrap input {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 7px 14px 7px 34px;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    width: 220px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
+ 
+  .search-wrap { margin-left: auto; position: relative; }
+  .search-wrap input { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 7px 14px 7px 34px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; width: 220px; outline: none; transition: border-color 0.2s; }
   .search-wrap input:focus { border-color: var(--accent); }
-  .search-wrap::before {
-    content: '⌕';
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 1rem;
-    pointer-events: none;
-  }
-
-  /* GRID */
+  .search-wrap::before { content: '⌕'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 1rem; pointer-events: none; }
+ 
   .main { padding: 2.5rem; max-width: 1300px; margin: 0 auto; }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1px;
-    border: 1px solid var(--border);
-    background: var(--border);
-  }
-
-  /* PROJECT CARD */
-  .project-card {
-    background: var(--card-bg);
-    padding: 1.75rem;
-    transition: background 0.2s;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    cursor: pointer;
-  }
+ 
+  .loading-state { text-align: center; padding: 4rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; }
+ 
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; border: 1px solid var(--border); background: var(--border); }
+ 
+  .project-card { background: var(--card-bg); padding: 1.75rem; transition: background 0.2s; position: relative; display: flex; flex-direction: column; gap: 12px; cursor: pointer; }
   .project-card:hover { background: var(--bg3); }
-
+ 
   .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-
-  .card-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    color: var(--text);
-    font-weight: 700;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-top: 7px;
-    flex-shrink: 0;
-  }
+  .card-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--text); font-weight: 700; }
+ 
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
   .status-adopt { background: var(--green-light); box-shadow: 0 0 8px var(--green-light); }
   .status-sale { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
   .status-rip { background: var(--muted); }
-
-  .card-desc {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  .card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .tag {
-    padding: 3px 10px;
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-
-  .card-author {
-    font-size: 0.78rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .avatar {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    font-weight: 500;
-    font-family: 'DM Mono', monospace;
-    color: #0e0d0b;
-  }
-
-  .card-price {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-weight: 500;
-  }
-
+ 
+  .card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+  .card-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { padding: 3px 10px; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+ 
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); }
+  .card-author { font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .avatar { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 500; font-family: 'DM Mono', monospace; color: #0e0d0b; }
+  .card-price { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 500; }
   .card-price.free { color: var(--green-light); }
   .card-price.rip { color: var(--muted); font-style: italic; }
-
-  .adopted-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 3px 8px;
-    border-radius: 2px;
-    background: rgba(109,190,140,0.12);
-    color: var(--green-light);
-    border: 1px solid rgba(109,190,140,0.25);
-  }
-
-  .died-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 500;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    backdrop-filter: blur(4px);
-  }
+  .died-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); display: flex; align-items: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+ 
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 500; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(4px); }
   .modal-overlay.open { display: flex; }
-
-  .modal {
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    padding: 2.5rem;
-    max-width: 560px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    animation: slideUp 0.25s ease;
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
-    background: none;
-    border: none;
-    color: var(--muted);
-    font-size: 1.25rem;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
+  .modal { background: var(--bg2); border: 1px solid var(--border2); border-radius: 6px; padding: 2.5rem; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; animation: slideUp 0.25s ease; }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: var(--muted); font-size: 1.25rem; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
   .modal-close:hover { color: var(--text); background: var(--bg3); }
-
-  .modal h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-  }
-
-  .modal-section {
-    margin-top: 1.5rem;
-  }
-
-  .modal-section label {
-    display: block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-
-  .modal-section input,
-  .modal-section textarea,
-  .modal-section select {
-    width: 100%;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 10px 14px;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-  }
-  .modal-section input:focus,
-  .modal-section textarea:focus,
-  .modal-section select:focus { border-color: var(--accent); }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text); }
+  .modal-section { margin-top: 1.5rem; }
+  .modal-section label { display: block; font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+  .modal-section input, .modal-section textarea, .modal-section select { width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 10px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.2s; resize: vertical; }
+  .modal-section input:focus, .modal-section textarea:focus, .modal-section select:focus { border-color: var(--accent); }
   .modal-section select option { background: var(--bg3); }
-
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 2rem;
-    justify-content: flex-end;
-  }
-
-  /* DETAIL MODAL */
-  .detail-modal-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .detail-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-  }
-
-  .detail-story {
-    font-size: 0.92rem;
-    color: #a09a91;
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-  }
-
-  .detail-info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 1.5rem;
-  }
-
-  .info-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 12px 16px;
-  }
-
-  .info-box-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-
-  .info-box-val {
-    font-size: 0.9rem;
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  .adopt-cta {
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 4px;
-    padding: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
+  .modal-actions { display: flex; gap: 10px; margin-top: 2rem; justify-content: flex-end; }
+ 
+  .detail-modal-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+  .detail-date { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+  .detail-story { font-size: 0.92rem; color: #a09a91; line-height: 1.75; margin-bottom: 1.5rem; }
+  .detail-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+  .info-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 12px 16px; }
+  .info-box-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+  .info-box-val { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+  .adopt-cta { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
   .adopt-cta-text { font-size: 0.88rem; color: var(--muted); }
   .adopt-cta-text strong { color: var(--accent); font-weight: 500; }
-
-  /* SECTION: HOW IT WORKS */
-  .how-section {
-    border-top: 1px solid var(--border);
-    padding: 5rem 2.5rem;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-
-  .section-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    font-weight: 700;
-    margin-bottom: 3rem;
-    max-width: 500px;
-  }
-
-  .how-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0;
-    border: 1px solid var(--border);
-  }
-
-  .step {
-    padding: 2rem;
-    border-right: 1px solid var(--border);
-    position: relative;
-  }
+ 
+  .how-section { border-top: 1px solid var(--border); padding: 5rem 2.5rem; max-width: 1300px; margin: 0 auto; }
+  .section-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; margin-bottom: 3rem; max-width: 500px; }
+  .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border: 1px solid var(--border); }
+  .step { padding: 2rem; border-right: 1px solid var(--border); }
   .step:last-child { border-right: none; }
-
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    color: var(--border2);
-    line-height: 1;
-    margin-bottom: 1rem;
-    font-style: italic;
-  }
-
-  .step-title {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-  }
-
-  .step-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--muted);
-  }
-
-  .footer-note {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-  }
-
-  /* Toast */
-  .toast {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--bg3);
-    border: 1px solid var(--border2);
-    border-left: 3px solid var(--green-light);
-    padding: 0.9rem 1.25rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    color: var(--text);
-    z-index: 999;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.3s;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
-  }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--border2); line-height: 1; margin-bottom: 1rem; font-style: italic; }
+  .step-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
+  .step-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+ 
+  footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--muted); }
+  .footer-note { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; }
+ 
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--bg3); border: 1px solid var(--border2); border-left: 3px solid var(--green-light); padding: 0.9rem 1.25rem; border-radius: 4px; color: var(--text); z-index: 999; transform: translateY(100px); opacity: 0; transition: all 0.3s; font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.04em; }
   .toast.show { transform: translateY(0); opacity: 1; }
-
-  /* Responsive */
+ 
   @media (max-width: 600px) {
     nav { padding: 1rem; }
     .filters-bar { padding: 1rem; }
@@ -692,19 +224,17 @@
 </style>
 </head>
 <body>
-
-<!-- NAV -->
+ 
 <nav>
   <a href="#" class="logo">
-    <span class="logo-tomb">🪦</span>
+    <span>🪦</span>
     <span>Side Project Graveyard</span>
   </a>
   <div class="nav-actions">
     <button class="btn btn-ghost" onclick="openModal('submit')">Submit a project</button>
   </div>
 </nav>
-
-<!-- HERO -->
+ 
 <section class="hero">
   <div class="hero-eyebrow">Rest in peace — or find a new owner</div>
   <h1>Your abandoned project<br>deserves a <em>second life.</em></h1>
@@ -715,27 +245,22 @@
   </div>
   <div class="hero-stats">
     <div class="stat-item">
-      <span class="stat-num" id="stat-total">247</span>
+      <span class="stat-num" id="stat-total">—</span>
       <span class="stat-label">Buried projects</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" id="stat-adopted">38</span>
-      <span class="stat-label">Adopted</span>
+      <span class="stat-num" id="stat-adopted">—</span>
+      <span class="stat-label">Free to adopt</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" id="stat-sale">61</span>
+      <span class="stat-num" id="stat-sale">—</span>
       <span class="stat-label">For sale</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">$4.2k</span>
-      <span class="stat-label">Total sold</span>
     </div>
   </div>
   <div class="tombstones-bg" id="tomb-deco"></div>
 </section>
-
-<!-- FILTERS -->
-<div class="filters-bar">
+ 
+<div class="filters-bar" id="projects-section">
   <span class="filter-label">Filter:</span>
   <button class="chip active" onclick="filterProjects('all', this)">All</button>
   <button class="chip" onclick="filterProjects('adopt', this)">Free to adopt</button>
@@ -749,15 +274,14 @@
     <input type="text" placeholder="Search projects..." id="search-input" oninput="searchProjects(this.value)">
   </div>
 </div>
-
-<!-- PROJECTS GRID -->
+ 
 <div class="main">
-  <div class="projects-grid" id="projects-grid"></div>
+  <div id="loading-state" class="loading-state">LOADING PROJECTS FROM THE GRAVEYARD...</div>
+  <div class="projects-grid" id="projects-grid" style="display:none"></div>
   <p id="no-results" style="text-align:center;padding:3rem;color:var(--muted);font-family:'DM Mono',monospace;font-size:0.8rem;display:none;">NO PROJECTS FOUND — TRY A DIFFERENT FILTER</p>
 </div>
-
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
+ 
+<section class="how-section">
   <div class="section-eyebrow">The process</div>
   <h2 class="section-title">How the graveyard works</h2>
   <div class="how-steps">
@@ -783,35 +307,30 @@
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
+ 
 <footer>
   <div class="footer-logo">🪦 Side Project Graveyard</div>
   <div class="footer-note">Built with love for every developer who shipped something beautiful, then moved on.</div>
 </footer>
-
+ 
 <!-- SUBMIT MODAL -->
 <div class="modal-overlay" id="modal-submit">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('submit')">✕</button>
     <h2>Bury a project</h2>
     <p style="font-size:0.85rem;color:var(--muted);margin-top:4px;">It lived. It died. Let the world know.</p>
-
     <div class="modal-section">
       <label>Project name *</label>
       <input type="text" id="f-name" placeholder="e.g. Laundry Tracker Pro">
     </div>
-
     <div class="modal-section">
       <label>What was it? *</label>
       <textarea id="f-desc" rows="3" placeholder="One paragraph — what did this do?"></textarea>
     </div>
-
     <div class="modal-section">
       <label>Why did it die?</label>
       <textarea id="f-why" rows="2" placeholder="Lost motivation, no users, ran out of time..."></textarea>
     </div>
-
     <div class="form-row">
       <div class="modal-section">
         <label>Status</label>
@@ -826,12 +345,10 @@
         <input type="text" id="f-price" placeholder="e.g. $150">
       </div>
     </div>
-
     <div class="modal-section">
       <label>Tech stack (comma separated)</label>
       <input type="text" id="f-stack" placeholder="React, Node, PostgreSQL">
     </div>
-
     <div class="form-row">
       <div class="modal-section">
         <label>Your name / handle</label>
@@ -842,14 +359,13 @@
         <input type="text" id="f-year" placeholder="e.g. 2022">
       </div>
     </div>
-
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeModal('submit')">Cancel</button>
       <button class="btn btn-primary" onclick="submitProject()">Bury it 🪦</button>
     </div>
   </div>
 </div>
-
+ 
 <!-- DETAIL MODAL -->
 <div class="modal-overlay" id="modal-detail">
   <div class="modal">
@@ -857,253 +373,213 @@
     <div id="detail-content"></div>
   </div>
 </div>
-
-<!-- TOAST -->
+ 
 <div class="toast" id="toast"></div>
-
+ 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const PROJECTS = [
-  {
-    id: 1, name: "HabitStack", status: "adopt",
-    desc: "A minimal habit tracker with streak visualization and weekly email reports. Had 12 beta users but lost steam after month 2.",
-    why: "Got a new job. No time to market it.",
-    stack: ["React", "Firebase", "Tailwind"], author: "mkumar_dev", initials: "MK", color: "#c9a84c",
-    year: 2022, price: null, category: ["web","saas"],
-    hasCode: true, hasDomain: false
-  },
-  {
-    id: 2, name: "LocalBrew", status: "sale",
-    desc: "Marketplace for home brewers to sell their recipes and trade ingredients locally. Had a working MVP with maps and user profiles.",
-    why: "Co-founder left. Solo shipping was too slow.",
-    stack: ["Next.js", "Supabase", "Google Maps"], author: "brewdev99", initials: "BD", color: "#8b5e3c",
-    year: 2021, price: "$280", category: ["web","saas"],
-    hasCode: true, hasDomain: true
-  },
-  {
-    id: 3, name: "SprintLog", status: "rip",
-    desc: "A Notion-style daily dev journal that auto-linked commits and PRs to your daily notes. Felt like magic, never found product-market fit.",
-    why: "Obsidian plugins killed the idea before we could launch.",
-    stack: ["Electron", "SQLite", "GitHub API"], author: "janecodes", initials: "JC", color: "#4a7c59",
-    year: 2023, price: null, category: ["tool"],
-    hasCode: false, hasDomain: false
-  },
-  {
-    id: 4, name: "PocketMentor", status: "adopt",
-    desc: "AI mentor that gave junior developers daily personalized challenges based on their GitHub activity and career goals.",
-    why: "API costs got out of hand. Couldn't monetize fast enough.",
-    stack: ["Python", "FastAPI", "OpenAI", "React"], author: "priya_builds", initials: "PB", color: "#534AB7",
-    year: 2023, price: null, category: ["web","tool","saas"],
-    hasCode: true, hasDomain: true
-  },
-  {
-    id: 5, name: "FlightWindow", status: "sale",
-    desc: "Browser extension that showed price history for flights directly on Google Flights. Simple and useful — got 600 installs in week one.",
-    why: "Google changed their UI structure 3 times. Maintenance hell.",
-    stack: ["Chrome Extension", "JS", "Node backend"], author: "travelcoder", initials: "TC", color: "#993C1D",
-    year: 2022, price: "$500", category: ["tool","web"],
-    hasCode: true, hasDomain: true
-  },
-  {
-    id: 6, name: "MealLoop", status: "adopt",
-    desc: "Meal planning app that learned your preferences from photos you took of meals you enjoyed. Smart weekly shopping lists.",
-    why: "iOS computer vision API kept breaking on device updates.",
-    stack: ["Swift", "CoreML", "Firebase"], author: "sana.mobile", initials: "SM", color: "#185FA5",
-    year: 2022, price: null, category: ["mobile"],
-    hasCode: true, hasDomain: false
-  },
-  {
-    id: 7, name: "StandupBot", status: "sale",
-    desc: "Slack bot that collected async standup responses and generated a clean weekly summary email for engineering managers.",
-    why: "Signed up 3 companies then a coworker built something similar at their company for free.",
-    stack: ["Node.js", "Slack API", "PostgreSQL"], author: "devtools_dan", initials: "DD", color: "#639922",
-    year: 2021, price: "$150", category: ["tool","saas"],
-    hasCode: true, hasDomain: true
-  },
-  {
-    id: 8, name: "Mapnotes", status: "rip",
-    desc: "A travel journal that pinned rich notes to a map — voice memos, photos, weather at the time. Like a private Google Maps with memories.",
-    why: "Built the whole thing. Got distracted by a new idea. Never launched.",
-    stack: ["Flutter", "Mapbox", "Supabase"], author: "wanderer_ux", initials: "WU", color: "#D4537E",
-    year: 2023, price: null, category: ["mobile"],
-    hasCode: true, hasDomain: false
-  },
-  {
-    id: 9, name: "OpenRole", status: "adopt",
-    desc: "Job board specifically for people transitioning careers — showed transferable skill matches instead of just keyword matches.",
-    why: "Couldn't get enough job listings to make it useful. Cold outreach was brutal.",
-    stack: ["Next.js", "Algolia", "Prisma"], author: "careershift", initials: "CS", color: "#BA7517",
-    year: 2022, price: null, category: ["web","saas"],
-    hasCode: true, hasDomain: true
+  const SUPABASE_URL = 'https://jrepumixlhyocsfflog.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_AbaC_1QMl46fNZHhN3ZGZA_wGh9mdd4';
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+ 
+  let allProjects = [];
+  let activeFilter = 'all';
+  let searchTerm = '';
+ 
+  const COLORS = ['#c9a84c','#8b5e3c','#4a7c59','#534AB7','#993C1D','#185FA5','#639922','#D4537E'];
+ 
+  function getColor(str) {
+    let hash = 0;
+    for (let c of (str || 'x')) hash = c.charCodeAt(0) + ((hash << 5) - hash);
+    return COLORS[Math.abs(hash) % COLORS.length];
   }
-];
-
-let allProjects = [...PROJECTS];
-let activeFilter = 'all';
-let searchTerm = '';
-
-function genTombstones() {
-  const el = document.getElementById('tomb-deco');
-  for (let i = 0; i < 60; i++) el.innerHTML += `<div class="mini-tomb"></div>`;
-}
-
-function renderProjects() {
-  const grid = document.getElementById('projects-grid');
-  const noResults = document.getElementById('no-results');
-  let filtered = allProjects.filter(p => {
-    const matchFilter = activeFilter === 'all' || p.status === activeFilter || p.category.includes(activeFilter);
-    const matchSearch = !searchTerm || p.name.toLowerCase().includes(searchTerm) || p.desc.toLowerCase().includes(searchTerm) || p.stack.join(' ').toLowerCase().includes(searchTerm);
-    return matchFilter && matchSearch;
-  });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '';
-    noResults.style.display = 'block';
-    return;
+ 
+  function getInitials(name) {
+    return (name || 'AN').replace('@','').slice(0,2).toUpperCase();
   }
-  noResults.style.display = 'none';
-
-  grid.innerHTML = filtered.map(p => {
-    const statusClass = p.status === 'adopt' ? 'status-adopt' : p.status === 'sale' ? 'status-sale' : 'status-rip';
-    const priceLabel = p.status === 'adopt' ? '<span class="card-price free">Free to adopt</span>' :
-                       p.status === 'sale' ? `<span class="card-price">${p.price}</span>` :
-                       '<span class="card-price rip">Resting in peace</span>';
-
-    return `<div class="project-card" onclick="openDetail(${p.id})" id="projects-section">
-      <div class="card-header">
-        <div class="card-name">${p.name}</div>
-        <div class="status-dot ${statusClass}"></div>
-      </div>
-      <div class="card-desc">${p.desc}</div>
-      <div class="card-meta">
-        ${p.stack.slice(0,3).map(s => `<span class="tag">${s}</span>`).join('')}
-        ${p.category.map(c => `<span class="tag" style="opacity:0.5">${c}</span>`).join('')}
-      </div>
-      <div class="card-footer">
-        <div class="card-author">
-          <div class="avatar" style="background:${p.color}">${p.initials}</div>
-          @${p.author}
-          <span class="died-label">· died ${p.year}</span>
+ 
+  async function loadProjects() {
+    document.getElementById('loading-state').style.display = 'block';
+    document.getElementById('projects-grid').style.display = 'none';
+ 
+    const { data, error } = await db
+      .from('projects')
+      .select('*')
+      .order('created_at', { ascending: false });
+ 
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('projects-grid').style.display = 'grid';
+ 
+    if (error) {
+      console.error(error);
+      showToast('Could not load projects. Check console.', true);
+      return;
+    }
+ 
+    allProjects = data || [];
+    updateStats();
+    renderProjects();
+  }
+ 
+  async function saveProject(project) {
+    const { error } = await db.from('projects').insert([project]);
+    if (error) { console.error(error); return false; }
+    return true;
+  }
+ 
+  function updateStats() {
+    document.getElementById('stat-total').textContent = allProjects.length;
+    document.getElementById('stat-adopted').textContent = allProjects.filter(p => p.status === 'adopt').length;
+    document.getElementById('stat-sale').textContent = allProjects.filter(p => p.status === 'sale').length;
+  }
+ 
+  function renderProjects() {
+    const grid = document.getElementById('projects-grid');
+    const noResults = document.getElementById('no-results');
+ 
+    let filtered = allProjects.filter(p => {
+      const matchFilter = activeFilter === 'all'
+        || p.status === activeFilter
+        || (p.category && p.category.includes(activeFilter));
+      const matchSearch = !searchTerm
+        || (p.name && p.name.toLowerCase().includes(searchTerm))
+        || (p.description && p.description.toLowerCase().includes(searchTerm))
+        || (p.stack && p.stack.join(' ').toLowerCase().includes(searchTerm));
+      return matchFilter && matchSearch;
+    });
+ 
+    if (filtered.length === 0) {
+      grid.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+    noResults.style.display = 'none';
+ 
+    grid.innerHTML = filtered.map(p => {
+      const statusClass = p.status === 'adopt' ? 'status-adopt' : p.status === 'sale' ? 'status-sale' : 'status-rip';
+      const priceLabel = p.status === 'adopt'
+        ? '<span class="card-price free">Free to adopt</span>'
+        : p.status === 'sale'
+          ? `<span class="card-price">${p.price || 'Make offer'}</span>`
+          : '<span class="card-price rip">Resting in peace</span>';
+      const stack = Array.isArray(p.stack) ? p.stack : [];
+      const color = getColor(p.author);
+      const initials = getInitials(p.author);
+ 
+      return `<div class="project-card" onclick="openDetail('${p.id}')">
+        <div class="card-header">
+          <div class="card-name">${p.name}</div>
+          <div class="status-dot ${statusClass}"></div>
         </div>
-        ${priceLabel}
+        <div class="card-desc">${p.description || ''}</div>
+        <div class="card-meta">${stack.slice(0,3).map(s => `<span class="tag">${s}</span>`).join('')}</div>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="avatar" style="background:${color}">${initials}</div>
+            @${p.author || 'anonymous'}
+            <span class="died-label">· died ${p.year || '?'}</span>
+          </div>
+          ${priceLabel}
+        </div>
+      </div>`;
+    }).join('');
+  }
+ 
+  function filterProjects(f, btn) {
+    activeFilter = f;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    renderProjects();
+  }
+ 
+  function searchProjects(val) {
+    searchTerm = val.toLowerCase().trim();
+    renderProjects();
+  }
+ 
+  function openDetail(id) {
+    const p = allProjects.find(x => String(x.id) === String(id));
+    if (!p) return;
+    const statusLabel = p.status === 'adopt' ? 'Free to adopt' : p.status === 'sale' ? `For sale — ${p.price || 'Make offer'}` : 'Just memorialized';
+    const statusColor = p.status === 'adopt' ? 'var(--green-light)' : p.status === 'sale' ? 'var(--accent)' : 'var(--muted)';
+    const stack = Array.isArray(p.stack) ? p.stack : [];
+ 
+    document.getElementById('detail-content').innerHTML = `
+      <div class="detail-modal-name">${p.name}</div>
+      <div class="detail-date">☠ Died ${p.year || '?'} · Built by @${p.author || 'anonymous'}</div>
+      <p class="detail-story">${p.description || ''}</p>
+      ${p.why_it_died ? `<p class="detail-story" style="font-style:italic;border-left:2px solid var(--border2);padding-left:1rem;">"${p.why_it_died}"</p>` : ''}
+      <div class="detail-info-grid">
+        <div class="info-box"><div class="info-box-label">Tech stack</div><div class="info-box-val">${stack.join(', ') || 'Not specified'}</div></div>
+        <div class="info-box"><div class="info-box-label">Status</div><div class="info-box-val" style="color:${statusColor}">${statusLabel}</div></div>
+        <div class="info-box"><div class="info-box-label">Code available</div><div class="info-box-val">${p.has_code ? '✓ Yes' : '✗ No'}</div></div>
+        <div class="info-box"><div class="info-box-label">Domain included</div><div class="info-box-val">${p.has_domain ? '✓ Yes' : '✗ No'}</div></div>
       </div>
-    </div>`;
-  }).join('');
-}
-
-function filterProjects(f, btn) {
-  activeFilter = f;
-  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  renderProjects();
-}
-
-function searchProjects(val) {
-  searchTerm = val.toLowerCase().trim();
-  renderProjects();
-}
-
-function openDetail(id) {
-  const p = PROJECTS.find(x => x.id === id);
-  const statusLabel = p.status === 'adopt' ? 'Free to adopt' : p.status === 'sale' ? `For sale — ${p.price}` : 'Just memorialized';
-  const statusColor = p.status === 'adopt' ? 'var(--green-light)' : p.status === 'sale' ? 'var(--accent)' : 'var(--muted)';
-
-  document.getElementById('detail-content').innerHTML = `
-    <div class="detail-modal-name">${p.name}</div>
-    <div class="detail-date">☠ Died ${p.year} · Built by @${p.author}</div>
-    <p class="detail-story">${p.desc}</p>
-    <p class="detail-story" style="font-style:italic;border-left:2px solid var(--border2);padding-left:1rem;">"${p.why}"</p>
-    <div class="detail-info-grid">
-      <div class="info-box">
-        <div class="info-box-label">Tech stack</div>
-        <div class="info-box-val">${p.stack.join(', ')}</div>
-      </div>
-      <div class="info-box">
-        <div class="info-box-label">Status</div>
-        <div class="info-box-val" style="color:${statusColor}">${statusLabel}</div>
-      </div>
-      <div class="info-box">
-        <div class="info-box-label">Code available</div>
-        <div class="info-box-val">${p.hasCode ? '✓ Yes' : '✗ No'}</div>
-      </div>
-      <div class="info-box">
-        <div class="info-box-label">Domain included</div>
-        <div class="info-box-val">${p.hasDomain ? '✓ Yes' : '✗ No'}</div>
-      </div>
-    </div>
-    ${p.status !== 'rip' ? `
-    <div class="adopt-cta">
-      <div class="adopt-cta-text">
-        Interested in ${p.status === 'adopt' ? 'adopting' : 'buying'} <strong>${p.name}</strong>?
-        <br><span style="font-size:0.8rem">We'll connect you with @${p.author} directly.</span>
-      </div>
-      <button class="btn btn-primary" onclick="expressInterest('${p.name}', '${p.author}')">${p.status === 'adopt' ? 'Adopt this project' : `Buy for ${p.price}`}</button>
-    </div>
-    ` : '<div style="text-align:center;padding:1rem;color:var(--muted);font-family:DM Mono,monospace;font-size:0.75rem;letter-spacing:0.08em;">THIS PROJECT IS MEMORIALIZED ONLY — NOT AVAILABLE</div>'}
-  `;
-  document.getElementById('modal-detail').classList.add('open');
-}
-
-function expressInterest(name, author) {
-  closeModal('detail');
-  showToast(`Interest registered! We'll connect you with @${author} about ${name}.`);
-}
-
-function openModal(type) {
-  document.getElementById(`modal-${type}`).classList.add('open');
-}
-
-function closeModal(type) {
-  document.getElementById(`modal-${type}`).classList.remove('open');
-}
-
-document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
-});
-
-function submitProject() {
-  const name = document.getElementById('f-name').value.trim();
-  const desc = document.getElementById('f-desc').value.trim();
-  if (!name || !desc) { showToast('Please fill in the required fields.', true); return; }
-
-  const status = document.getElementById('f-status').value;
-  const price = document.getElementById('f-price').value.trim() || null;
-  const stackRaw = document.getElementById('f-stack').value;
-  const author = document.getElementById('f-author').value.trim() || 'anonymous';
-  const year = parseInt(document.getElementById('f-year').value) || new Date().getFullYear();
-  const why = document.getElementById('f-desc').value.trim();
-
-  const colors = ['#c9a84c','#8b5e3c','#4a7c59','#534AB7','#993C1D','#185FA5'];
-  const newProject = {
-    id: Date.now(),
-    name, desc, why,
-    status, price,
-    stack: stackRaw ? stackRaw.split(',').map(s => s.trim()).filter(Boolean) : ['Unknown'],
-    author: author.replace('@',''),
-    initials: author.replace('@','').slice(0,2).toUpperCase(),
-    color: colors[Math.floor(Math.random() * colors.length)],
-    year, category: ['web'],
-    hasCode: true, hasDomain: false
-  };
-
-  allProjects.unshift(newProject);
-  renderProjects();
-  closeModal('submit');
-  showToast(`${name} has been buried. R.I.P. 🪦`);
-
-  document.getElementById('stat-total').textContent = parseInt(document.getElementById('stat-total').textContent) + 1;
-  ['f-name','f-desc','f-why','f-price','f-stack','f-author','f-year'].forEach(id => document.getElementById(id).value = '');
-}
-
-function showToast(msg, isError = false) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.borderLeftColor = isError ? 'var(--red-light)' : 'var(--green-light)';
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3500);
-}
-
-genTombstones();
-renderProjects();
+      ${p.status !== 'rip' ? `
+      <div class="adopt-cta">
+        <div class="adopt-cta-text">Interested in ${p.status === 'adopt' ? 'adopting' : 'buying'} <strong>${p.name}</strong>?<br><span style="font-size:0.8rem">We'll connect you with @${p.author || 'the owner'} directly.</span></div>
+        <button class="btn btn-primary" onclick="expressInterest('${p.name}','${p.author}')">${p.status === 'adopt' ? 'Adopt this project' : `Buy for ${p.price || 'offer'}`}</button>
+      </div>` : '<div style="text-align:center;padding:1rem;color:var(--muted);font-family:DM Mono,monospace;font-size:0.75rem;letter-spacing:0.08em;">THIS PROJECT IS MEMORIALIZED ONLY — NOT AVAILABLE</div>'}
+    `;
+    document.getElementById('modal-detail').classList.add('open');
+  }
+ 
+  function expressInterest(name, author) {
+    closeModal('detail');
+    showToast(`Interest registered! We'll connect you with @${author} about ${name}.`);
+  }
+ 
+  async function submitProject() {
+    const name = document.getElementById('f-name').value.trim();
+    const desc = document.getElementById('f-desc').value.trim();
+    if (!name || !desc) { showToast('Please fill in the required fields.', true); return; }
+ 
+    const newProject = {
+      name,
+      description: desc,
+      why_it_died: document.getElementById('f-why').value.trim() || null,
+      status: document.getElementById('f-status').value,
+      price: document.getElementById('f-price').value.trim() || null,
+      stack: document.getElementById('f-stack').value ? document.getElementById('f-stack').value.split(',').map(s => s.trim()).filter(Boolean) : [],
+      author: document.getElementById('f-author').value.trim().replace('@','') || 'anonymous',
+      year: parseInt(document.getElementById('f-year').value) || new Date().getFullYear(),
+      has_code: true,
+      has_domain: false,
+      category: ['web']
+    };
+ 
+    showToast('Burying your project...');
+    const success = await saveProject(newProject);
+ 
+    if (success) {
+      await loadProjects();
+      closeModal('submit');
+      showToast(`${name} has been buried. R.I.P. 🪦`);
+      ['f-name','f-desc','f-why','f-price','f-stack','f-author','f-year'].forEach(id => { document.getElementById(id).value = ''; });
+    } else {
+      showToast('Something went wrong. Please try again.', true);
+    }
+  }
+ 
+  function openModal(type) { document.getElementById(`modal-${type}`).classList.add('open'); }
+  function closeModal(type) { document.getElementById(`modal-${type}`).classList.remove('open'); }
+  document.querySelectorAll('.modal-overlay').forEach(o => { o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }); });
+ 
+  function showToast(msg, isError = false) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.borderLeftColor = isError ? 'var(--red-light)' : 'var(--green-light)';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+ 
+  function genTombstones() {
+    const el = document.getElementById('tomb-deco');
+    for (let i = 0; i < 60; i++) el.innerHTML += `<div class="mini-tomb"></div>`;
+  }
+ 
+  genTombstones();
+  loadProjects();
 </script>
 </body>
 </html>
